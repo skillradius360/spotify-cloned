@@ -226,7 +226,13 @@ main {
     height: 7vh;
     width: 97.7%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    padding-top:20px;
+align-items: center;    
+  }
+  .playBar input{
+    width:60%;
+    
   }
 
 .playBarButtons{
@@ -234,8 +240,12 @@ main {
   display:flex;
   justify-content: space-evenly;
   width:50%;
+  height: 50px;
 }
 .playBarButtons li{
   border: 1px solid green;
   width:13%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
