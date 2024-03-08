@@ -15,6 +15,7 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 main {
   /* min-width: 96vw; */
   height: 88vh;
@@ -227,25 +228,36 @@ main {
     width: 97.7%;
     display: flex;
     flex-direction: column;
-    padding-top:20px;
-align-items: center;    
+align-items: center;  
+border:2px solid white;  
+margin:25px;
   }
+
   .playBar input{
-    width:60%;
+    width:40%;
     
+  }
+  .playBar audio{
+    height:60px;
+    background-color: white;
   }
 
 .playBarButtons{
-  border:1px solid white;
+  /* border:1px solid white; */
   display:flex;
   justify-content: space-evenly;
-  width:50%;
-  height: 50px;
+  min-width:40%;
+  height: 40px;
+  
+  margin: 5px;
 }
 .playBarButtons li{
-  border: 1px solid green;
+  /* border: 1px solid green; */
   width:13%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+footer{
+  border:2px solid white;
 }
