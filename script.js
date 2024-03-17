@@ -2,6 +2,16 @@ const playlistBox = document.querySelector(".bottomBox");
 const currentlyPlaying = document.querySelector(".currentlyPlaying");
 const playPause = document.querySelector("#play_pause");
 
+function secondsToMinutes(seconds) {
+  if (typeof seconds !== 'number' || isNaN(seconds)) {
+    return 'Invalid input: Please enter a number of seconds.';}
+  const minutes = Math.floor(seconds / 60);
+  return `${minutes}`;
+}
+
+  
+
+
 const audioObj = new Audio();
 
 //  MUSIC DATA NAMES
@@ -31,30 +41,29 @@ dataRecieve()
 playlistBox.addEventListener('click',(f)=>{
   audioObj.src=`musics/${f.target.innerHTML}`+`.mp3`
   playPause.firstElementChild.src="images/pause.png"
-  // currentlyPlaying.innerHTML = f.target.textContent+audioObj.currentTime
   audioObj.play()
-
-playPause.addEventListener("click",()=>{
-  if(audioObj.paused===false){
-    playPause.firstElementChild.src="images/play-button (1).png"
-    audioObj.pause()
-  }
-  else{
-    audioObj.play()
-    playPause.firstElementChild.src="images/pause.png"
-  }
-})
-
-
+  
+  playPause.addEventListener("click",()=>{
+    if(audioObj.paused===false){
+      playPause.firstElementChild.src="images/play-button (1).png"
+      audioObj.pause()
+    }
+    else{
+      audioObj.play()
+      playPause.firstElementChild.src="images/pause.png"
+    }
+  })
+  
+  
 })
 
 audioObj.addEventListener("timeupdate",(e)=>{
-  currentlyPlaying.innerHTML=Math.floor(audioObj.currentTime)
+  currentlyPlaying.innerHTML = `${secondsToMinutes(Math.floor(audioObj.currentTime))}:${Math.ceil(audioObj.currentTime%60)}/${secondsToMinutes(audioObj.duration)}${audioObj.currentTime.toPrecision(2)}`
 })
 
 document.querySelector(".seek_Bar")
 .addEventListener("click",(data)=>{
   console.log(data.clientX)
-  document.querySelector(".seek_Thumb").style.left=`${data.clientX}px`
+  // document.querySelector(".seek_Thumb").style.left=`${data.clientX}px`
 })
 
