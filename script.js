@@ -9,7 +9,6 @@ function secondsToMinutes(seconds) {
   return `${minutes}`;
 }
 
-
   
 
 
