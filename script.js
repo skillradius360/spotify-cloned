@@ -2,6 +2,16 @@ const playlistBox = document.querySelector(".bottomBox");
 const currentlyPlaying = document.querySelector(".currentlyPlaying");
 const playPause = document.querySelector("#play_pause");
 
+function secondsToMinutes(seconds) {
+  if (typeof seconds !== 'number' || isNaN(seconds)) {
+    return 'Invalid input: Please enter a number of seconds.';}
+  const minutes = Math.floor(seconds / 60);
+  return `${minutes}`;
+}
+
+  
+
+
 const audioObj = new Audio();
 
 //  MUSIC DATA NAMES
@@ -27,13 +37,11 @@ async function dataRecieve(){
 }
 dataRecieve()
 
-
-
 // MUSIC PLAYERS
 playlistBox.addEventListener('click',(f)=>{
   audioObj.src=`musics/${f.target.innerHTML}`+`.mp3`
   playPause.firstElementChild.src="images/pause.png"
-  console.log(typeof(audioObj.currentTime))
+  document.querySelector(".currentlyPlayingSong").innerHTML = f.target.innerHTML
   audioObj.play()
   
   playPause.addEventListener("click",()=>{
@@ -46,18 +54,11 @@ playlistBox.addEventListener('click',(f)=>{
       playPause.firstElementChild.src="images/pause.png"
     }
   })
-  
-  
 })
 
 audioObj.addEventListener("timeupdate",(e)=>{
-  currentlyPlaying.innerHTML=Math.floor(audioObj.currentTime)
+  currentlyPlaying.innerHTML = `${secondsToMinutes(Math.floor(audioObj.currentTime))}:${Math.ceil(audioObj.currentTime%60)}/${(audioObj.duration/60).toPrecision(3)}`
+  document.querySelector(".seek_Thumb").style.left=(audioObj.currentTime/audioObj.duration)*100+"%"
 })
-currentlyPlaying.innerHTML = e.target.innerHTML+
-  
-  document.querySelector(".seek_Bar").addEventListener("click",(data)=>{
-    console.log(data)
-    document.querySelector(".seek_Thumb").style.left=`${data.offsetX/100}%`
 
-})
 
