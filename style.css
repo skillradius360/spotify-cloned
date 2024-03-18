@@ -306,5 +306,5 @@ footer{
   position: relative;
   bottom: 16px;
   left:0%;
-  transition: left 440ms ease-in-out;
+  transition: left 250ms ease-in-out;
 }

@@ -1,35 +1,33 @@
 const playlistBox = document.querySelector(".bottomBox");
 const currentlyPlaying = document.querySelector(".currentlyPlaying");
 const playPause = document.querySelector("#play_pause");
+const seek_thumb=document.querySelector(".seek_Thumb")
 
 function secondsToMinutes(seconds) {
   if (typeof seconds !== 'number' || isNaN(seconds)) {
-    return 'Invalid input: Please enter a number of seconds.';}
+    return 'Invalid input: Please enter a number of seconds.';
+  }
   const minutes = Math.floor(seconds / 60);
   return `${minutes}`;
 }
-
-  
-
-
 const audioObj = new Audio();
 
 //  MUSIC DATA NAMES
-async function dataRecieve(){
-  let jsonDataDiv= document.createElement("div") 
-  
+async function dataRecieve() {
+  let jsonDataDiv = document.createElement("div")
+
   let musicData = fetch("http://127.0.0.1:5500/musics/")
-  jsondata= await musicData;
+  jsondata = await musicData;
   responseData = await jsondata.text()
-  
-  jsonDataDiv.innerHTML=responseData;
-  let musicNames =jsonDataDiv.querySelectorAll(".icon-mp3")
-  
-  musicNames.forEach((e)=>{
+
+  jsonDataDiv.innerHTML = responseData;
+  let musicNames = jsonDataDiv.querySelectorAll(".icon-mp3")
+
+  musicNames.forEach((e) => {
     let playlistBoxes = document.createElement("div");
-    playlistBoxes.innerHTML=` <div>${e.title.split(".")[0]}</div>
+    playlistBoxes.innerHTML = ` <div>${e.title.split(".")[0]}</div>
     <img src="images/music.png" width="50px" height="50px">`
-    playlistBoxes.className="playListBoxes"
+    playlistBoxes.className = "playListBoxes"
     playlistBox.appendChild(playlistBoxes)
 
   })
@@ -38,27 +36,32 @@ async function dataRecieve(){
 dataRecieve()
 
 // MUSIC PLAYERS
-playlistBox.addEventListener('click',(f)=>{
-  audioObj.src=`musics/${f.target.innerHTML}`+`.mp3`
-  playPause.firstElementChild.src="images/pause.png"
+playlistBox.addEventListener('click', (f) => {
+  audioObj.src = `musics/${f.target.innerHTML}` + `.mp3`
+  playPause.firstElementChild.src = "images/pause.png"
   document.querySelector(".currentlyPlayingSong").innerHTML = f.target.innerHTML
   audioObj.play()
-  
-  playPause.addEventListener("click",()=>{
-    if(audioObj.paused===false){
-      playPause.firstElementChild.src="images/play-button (1).png"
+
+  playPause.addEventListener("click", () => {
+    if (audioObj.paused === false) {
+      playPause.firstElementChild.src = "images/play-button (1).png"
       audioObj.pause()
     }
-    else{
+    else {
       audioObj.play()
-      playPause.firstElementChild.src="images/pause.png"
+      playPause.firstElementChild.src = "images/pause.png"
     }
   })
 })
 
-audioObj.addEventListener("timeupdate",(e)=>{
-  currentlyPlaying.innerHTML = `${secondsToMinutes(Math.floor(audioObj.currentTime))}:${Math.ceil(audioObj.currentTime%60)}/${(audioObj.duration/60).toPrecision(3)}`
-  document.querySelector(".seek_Thumb").style.left=(audioObj.currentTime/audioObj.duration)*100+"%"
+audioObj.addEventListener("timeupdate", (e) => {
+  currentlyPlaying.innerHTML = `${secondsToMinutes(Math.floor(audioObj.currentTime))}:${Math.ceil(audioObj.currentTime % 60)}/${(audioObj.duration / 60).toPrecision(3)}`
+  seek_thumb.style.left = ((audioObj.currentTime / audioObj.duration)) * 102 + "%"
+
 })
 
+document.querySelector(".seek_Bar").addEventListener("click",(data)=>{
+seek_thumb.style.left=(data.offsetX/ data.target.getBoundingClientRect().width)*100+"%"
+audioObj.currentTime= (audioObj.duration*(data.offsetX/ data.target.getBoundingClientRect().width)*100)/100
+})
 
