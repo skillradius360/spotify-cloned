@@ -2,7 +2,6 @@ const playlistBox = document.querySelector(".bottomBox");
 const currentlyPlaying = document.querySelector(".currentlyPlaying");
 const playPause = document.querySelector("#play_pause");
 const seek_thumb=document.querySelector(".seek_Thumb")
-const seek_thumb=document.querySelector(".seek_Thumb")
 
 function secondsToMinutes(seconds) {
   if (typeof seconds !== 'number' || isNaN(seconds)) {
@@ -60,3 +59,7 @@ audioObj.addEventListener("timeupdate",(e)=>{
   document.querySelector(".seek_Thumb").style.left=(audioObj.currentTime/audioObj.duration)*100+"%"
 })
 
+document.querySelector(".seek_Bar").addEventListener("click",(e)=>{
+seek_thumb.style.left=(e.offsetX/e.target.getBoundingClientRect().width)*100+"%"
+audioObj.currentTime= (audioObj.duration*(e.offsetX/e.target.getBoundingClientRect().width)*100)/100
+})
