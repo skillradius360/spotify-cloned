@@ -1,27 +1,21 @@
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 446px) {
     .sec1 {
       display:none;
     }
-    .mainBox{
-      height: 93%;
-      width: 100%;
-      scrollbar-width: none;
-      scrollbar-gutter: stable;
-      display: flex;
-      flex-direction: column;
-      z-index: 1
-    }
-    .row-1__music{
-      overflow-x:scroll;
-      scrollbar-width: none;
-      scrollbar-gutter: stable;
-      gap:0;
-      margin: 0;
-      padding: 0;
-      z-index: 99
-    } 
-    .musicContainers{
-      height:100%;
-    }
-  }
-  
+
+.mainBox{
+  width: 100vw;
+}
+}
+.row-1__music{
+  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  overflow: scroll;
+  overflow-y: hidden;
+  width: 100%;
+}
+.row-1__music::-webkit-scrollbar{
+  height:0px;
+}

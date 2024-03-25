@@ -5,12 +5,19 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Ysabeau SC", sans-serif;
-}
 
+}
+:root {
+  --height: 90vh;
+  --grayColor: rgb(22, 21, 21);
+  --grayColor2: rgb(32, 32, 32);
+  --round: 10px;
+}
 body {
   background: rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
+  
 }
 
 main {
@@ -18,73 +25,11 @@ main {
   display: flex;
 }
 
-.sec1 {
-  z-index: 99;
-  display: flex;
-  min-width:22%;
-  max-width:350px;
-  height: var(--height);
-  flex: 0 0 1;
-  flex-direction: column;
-  position: relative;
 
-}
-
-/* 1ST BOX */
-.navBox {
-  width: 100%;
-  height: 15%;
-  display: flex;
-  flex-direction: column;
-  padding-left: 20px;
-  justify-content: space-evenly;
-  z-index: 99;
-  background-color: var(--grayColor);
-  border-radius: var(--round);
-}
-
-/* 2nd BOX */
-.bottomBox {
-  max-width: 100%;
-  height: 82.5%;
-  display: flex;
-  flex-direction: column;
-  color: white;
-  font-size: 0.7rem;
-  font-family: 'Source Code Pro', monospace;
-  padding-top: 7px;
-  border-radius: var(--round);
-  background-color: var(--grayColor);
-  flex-shrink: 0;
-  z-index: 99;
-  gap:10px;
-  
-}
-
-/* BOTTOM NAV TEXT and + */
-.bottomBoxNav {
-  font-size: 14px;
-  display: flex;
-  justify-content: space-between;
-  /* align-items: center; */
-  padding-right: 1em;
-  margin-bottom: 20px;
-}
-.bottomBoxNav ul {
-  display: flex;
-  gap: 1em;
-  align-items: center;
-  list-style: none;
-}
-.bottomBoxNav > span {
-  font-size: 2rem;
-  display: flex;
-  align-items: center;
-}
 
 /* MAINBOX */
 .mainBox {
-  width: 90%;
+  width: 100%;
   height: 100%;
   color: white;
   background-color: var(--grayColor);
@@ -93,12 +38,16 @@ main {
   overflow: scroll;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
   /* aspect-ratio: 16 / 9; */
 }
 .mainbox__nav {
   display: flex;
   justify-content: space-between;
   width:100%;
+  margin-bottom:5%;
 }
 
 /* BUTTON BOX */
@@ -161,56 +110,12 @@ main {
 }
 
 
-.row-1__music {
-  display: flex;
-  width: 94%;
-  height: 35%;
-  justify-content: center;
-  align-items: center;
-  /* flex-wrap: wrap; */
-  gap: 15px;
-  margin-left: 30px;
-
-}
-
-.musicContainers {
-  min-width:calc(85% /10);
-  height: 190px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
-  /* padding-top: 20px; */
-  border-radius: 7px;
-  flex-shrink: 0;
-  background-color: var(--grayColor2);
-  box-shadow: 0px 4px 57px 6px rgba(0, 0, 0, 0.75);
-
-}
-
-.musicContainersBox {
-  width:97%;
-  height: 95%;
-  padding-right: 5px;
-  flex-shrink: 0;
-}
-.musicContainersBox img {
-  border-radius: 4px;
-  height: 100%;
-  width: 100%;
-  box-shadow: 0px 4px 57px 12px rgba(0, 0, 0, 0.75);
-}
-
-#mix__header {
-  padding-left: 30px;
-  margin-top: 30px;
-}
 
 ::-webkit-scrollbar {
   width: 0.5rem;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(24, 23, 23);
+  background-color: rgb(31, 31, 29);
   height: 50px;
   width: 100px;
 }
@@ -268,23 +173,9 @@ footer{
   height: 8vh;
 
 }
-.playListBoxes{
-  height:70px;
-  border-radius: 5px;
-  width:95%;
-  font-size:0.9vw;
-  text-align: center;
-  box-sizing: border-box;
-  padding-top:5px;
-  display: flex;
-  padding-left: 10px;
-  background-color: var(--grayColor2);
-  justify-content: space-between;
-}
 
 .seek_Bar{
   width:100%;
-  height: 2px;
   border:2px solid white;
   /* margin-top:17px; */
   cursor: pointer;
@@ -297,7 +188,7 @@ footer{
   background-color: white;
   border-radius:20px;
   position: relative;
-  bottom: 11px;
+  bottom: 14px;
   left:0%;
   transition: left 250ms ease-in-out;
   margin: 0;
@@ -307,4 +198,22 @@ footer{
   display: flex;
   justify-content: space-between;
   width:100%;
+
+}
+
+.imgDiv{
+  display: flex;
+  justify-content: center;
+  height:40vh;
+}
+.imgDiv img{
+  /* box-shadow: 0px -1px 198px 126px rgba(36,121,212,1); */
+  box-shadow: 0px -1px 198px 126px rgb(230, 146, 225);
+}
+
+p{
+  /* height:60px; */
+  margin-top:3.5rem;
+  text-align: center;
+  font-size: 5rem;
 }
