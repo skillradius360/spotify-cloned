@@ -1,10 +1,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Ysabeau+SC:wght@1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
+
 * {
   margin: 2px;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Ysabeau SC", sans-serif;
+  font-family: "Reddit Mono", monospace;
 }
 
 body {
@@ -50,14 +52,16 @@ main {
   display: flex;
   flex-direction: column;
   color: white;
-  font-size: 0.7rem;
-  font-family: 'Source Code Pro', monospace;
+  font-size:40px;
+  font-family: "Reddit Mono", monospace;
   padding-top: 7px;
   border-radius: var(--round);
   background-color: var(--grayColor);
   flex-shrink: 0;
   z-index: 99;
   gap:10px;
+  overflow: scroll;
+  overflow-x: hidden;
   
 }
 
@@ -69,6 +73,7 @@ main {
   /* align-items: center; */
   padding-right: 1em;
   margin-bottom: 20px;
+  z-index:-1;
 }
 .bottomBoxNav ul {
   display: flex;
@@ -77,7 +82,7 @@ main {
   list-style: none;
 }
 .bottomBoxNav > span {
-  font-size: 2rem;
+  font-size: 3rem;
   display: flex;
   align-items: center;
 }
@@ -266,13 +271,14 @@ footer{
   flex-direction: column;
   padding:0 56px;
   height: 8vh;
+  z-index: 15;
 
 }
 .playListBoxes{
   height:70px;
   border-radius: 5px;
   width:95%;
-  font-size:0.9vw;
+  font-size:20px;
   text-align: center;
   box-sizing: border-box;
   padding-top:5px;
