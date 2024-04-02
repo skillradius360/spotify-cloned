@@ -24,8 +24,8 @@ playPause.addEventListener("click", () => {
       audioObj.pause()
     }
     else {
-      audioObj.play()
-      audioObj.src = `musics/Uptown-Funk` + `.mp3`
+      let parsedData= localStorage.getItem("imageMusicData").trim()
+      audioObj.src = `musics/${parsedData}.mp3`
       audioObj.play()
       playPause.firstElementChild.src = "images/pause.png"
     }

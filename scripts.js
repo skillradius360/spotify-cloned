@@ -78,6 +78,4 @@ document.addEventListener("click",(e)=>{
 
 })
 
-document.querySelector(".row-1__music").addEventListener("scroll",()=>{
-  console.log("xxxx")
-})
+

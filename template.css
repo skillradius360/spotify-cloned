@@ -119,18 +119,7 @@ main {
   height: 50px;
   width: 100px;
 }
-.playlistDiv{
-  width: 90%;
-  height:7%;
-  border:2px solid green;
-  display: flex;
-  box-sizing: border-box;
-}
-.playlistDiv  img{
-  display: inline-block;
-  height: 2rem;
-  width: 2rem;
-}
+
 
 
 .playBarButtons{
