@@ -1,5 +1,4 @@
 
-const playlistBox = document.querySelector(".bottomBox");
 const currentlyPlaying = document.querySelector(".currentlyPlaying");
 const playPause = document.querySelector("#play_pause");
 const seek_thumb=document.querySelector(".seek_Thumb")

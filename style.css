@@ -314,3 +314,9 @@ footer{
   justify-content: space-between;
   width:100%;
 }
+
+.playlistBox{
+  border:2px solid orange;
+  font-size:20px;
+
+}
