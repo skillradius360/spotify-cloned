@@ -14,22 +14,51 @@
   <body>
     <main>
             <!-- MAIN_NAV -->
+            <section class="sec1">
+              <div class="navBox">
+                <img src="images/spotify-logo.png" width="8%" alt="" loading="lazy" />
+                <img src="images/search.png" width="8%" alt="" loading="lazy" />
+              </div>
+              <!-- BOX2 -->
+              <div class="bottomBox">
+                <div class="bottomBoxNav">
+                  <ul>
+                    <li>
+                      <img
+                        src="images/cassette.png"
+                        alt=""
+                        width="50px"
+                        loading="lazy"
+                      />
+                    </li>
+                    <li>YOUR LIBRARY</li>
+                  </ul>
+                  <span>&#43;</span>
+                </div>
+              </div>
+            </section>
+
       <div class="mainBox">
         <nav class="mainbox__nav">
           <ul class="nav__buttons">
-            <li><button type="submit">&#60;</button></li>
-            <li><button type="submit">&#62;</button></li>
-          </ul>
+            <li><button type="submit" id="previousPage">&#60;</button></li>
+         
           <!-- MAINBOX NAV -->
-          <ul class="nav__icons">
+         
+          <span>
             <li>Install App</li>
             <li>&#9993;</li>
             <li>&#8999;</li>
+          </span>
           </ul>
+          <div class="imgDiv"></div>
         </nav>
         <!-- MUSIC IMAGE  -->
-        <div class="imgDiv"></div>
-        <p></p>
+        <div class="midScreen">
+        <button id="main_screen_player"><img src="images/play-button (1).png" width='20px' alt=""></button>
+        <span id="addToList">&#43;</span>
+      </div>
+       <div class="musicBox"></div>
         </div>
     </main>
     <!-- PLAYBAR -->

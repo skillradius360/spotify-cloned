@@ -13,29 +13,21 @@ function secondsToMinutes(seconds) {
 }
 const audioObj = new Audio();
 
-//  MUSIC DATA NAMES
-async function dataRecieve() {
-  let jsonDataDiv = document.createElement("div")
 
-  let musicData = fetch("http://127.0.0.1:5500/musics/")
-  jsondata = await musicData;
-  responseData = await jsondata.text()
-
-  jsonDataDiv.innerHTML = responseData;
-  let musicNames = jsonDataDiv.querySelectorAll(".icon-mp3")
-
-  musicNames.forEach((e) => {
+let musicStack = []
+document.addEventListener("click",(e)=>{
+  if(e.target.parentElement.className=="musicContainersBox"){
+    musicStack.push(e.target.closest(".musicContainers").lastElementChild.innerHTML)
+  }
+  musicStack.forEach((e)=>{
     let playlistBoxes = document.createElement("div");
-    playlistBoxes.innerHTML = ` <div>${e.title.split(".")[0]}</div>
-    <img src="images/music.png" width="40px" height="40px">`
-    playlistBoxes.className = "playListBoxes"
-    playlistBox.appendChild(playlistBoxes)
-
+        playlistBoxes.innerHTML = ` <div>${e.title.split(".")[0]}</div>
+        <img src="images/music.png" width="40px" height="40px">`
+        playlistBoxes.className = "playListBoxes"
+        playlistBox.appendChild(playlistBoxes)
   })
-
-}
-dataRecieve()
-
+ 
+})
 // MUSIC PLAYERS
 playlistBox.addEventListener('click', (f) => {
   audioObj.src = `musics/${f.target.innerHTML}` + `.mp3`
@@ -70,10 +62,8 @@ audioObj.currentTime= (audioObj.duration*(e.offsetX/e.target.getBoundingClientRe
 document.addEventListener("click",(e)=>{
     if(e.target.parentElement.className=="musicContainersBox"){
       window.location.assign("http://127.0.0.1:5500/template.html")
-      console.log("hail")
      localStorage.setItem("imgSrc",e.target.closest(".musicContainersBox").innerHTML)
      localStorage.setItem("imageMusicData",e.target.closest(".musicContainers").lastElementChild.innerHTML)
-    console.log(e.target.closest(".musicContainers").lastElementChild.innerHTML)
     }
 
 })

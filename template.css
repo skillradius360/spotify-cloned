@@ -1,11 +1,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Ysabeau+SC:wght@1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Flow+Circular&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 * {
   margin: 2px;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Ysabeau SC", sans-serif;
-
+  font-family: "Montserrat", sans-serif;
+  font-weight: 550;
+}
+.flow-circular-regular {
+  font-style: normal;
 }
 :root {
   --height: 90vh;
@@ -25,6 +29,69 @@ main {
   display: flex;
 }
 
+.sec1 {
+  z-index: 99;
+  display: flex;
+  min-width:22%;
+  max-width:350px;
+  height: 88.6vh;
+  flex: 0 0 1;
+  flex-direction: column;
+  position: relative;
+  border-radius:18px;
+  background: rgb(20, 20, 20);
+
+}
+.navBox {
+  width: 98%;
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  justify-content: space-evenly;
+  z-index: 99;
+  background-color: var(--grayColor);
+  border-radius: var(--round);
+  border-radius:18px;
+}
+
+.bottomBox {
+  max-width: 100%;
+  height: 82.5%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size:40px;
+  font-family: "Reddit Mono", monospace;
+  padding-top: 7px;
+  border-radius: var(--round);
+  background-color: var(--grayColor);
+  flex-shrink: 0;
+  z-index: 99;
+  gap:10px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.bottomBoxNav {
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  padding-right: 1em;
+  margin-bottom: 20px;
+  z-index:-1;
+}
+.bottomBoxNav ul {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  list-style: none;
+}
+.bottomBoxNav > span {
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+}
 
 
 /* MAINBOX */
@@ -33,21 +100,24 @@ main {
   height: 100%;
   color: white;
   background-color: var(--grayColor);
-  border-radius: var(--round);
+  border-radius: 14px;
   margin: 4px;
   overflow: scroll;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  /* aspect-ratio: 16 / 9; */
+  /* display: flex;
+  flex-direction: column; */
+
 }
 .mainbox__nav {
   display: flex;
   justify-content: space-between;
   width:100%;
-  margin-bottom:5%;
+  margin-bottom:2rem;
+  flex-direction: column;
+  background: linear-gradient(to top, rgb(1, 1, 17),rgb(15, 154, 196));
+  box-shadow: 0px 35px 490px rgb(15,154,196);
+
 }
 
 /* BUTTON BOX */
@@ -56,6 +126,12 @@ main {
   list-style: none;
   gap: 15px;
   margin-left: 10px;
+  justify-content: space-between;
+}
+.nav__buttons span{
+  display: flex;
+  justify-content: space-around;
+  width:35%;
 }
 /* BUTTONS ONLY */
 .nav__buttons button {
@@ -68,21 +144,15 @@ main {
   background-color: black;
   color: white;
   font-size: 1rem;
+  
 }
-/*  ICONS SIGN UP*/   
-.nav__icons {   
-  display: flex;   
-  list-style: none;   
-  align-items: center;   
-  justify-content: center;
-}
+
 .nav__icons :nth-child(1) {
   border-radius: 10px;
   padding: 8px;
   font-family: 'Source Code Pro', monospace;
   font-size: 0.7rem;
   border: none;
-  background-color: rgb(228, 130, 130);
 }
 
 .nav__icons :nth-child(2) {
@@ -109,8 +179,6 @@ main {
   background-color: rgb(70, 66, 66);
 }
 
-
-
 ::-webkit-scrollbar {
   width: 0.5rem;
 }
@@ -119,8 +187,6 @@ main {
   height: 50px;
   width: 100px;
 }
-
-
 
 .playBarButtons{
   display:flex;
@@ -137,11 +203,9 @@ main {
   align-items: center;
 }
 .currentlyPlaying{
-  /* border:2px solid orange; */
   position: relative;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: medium;
-  /* left:35%; */
   width:110px;
   color:white;
   text-align: center;
@@ -149,8 +213,7 @@ main {
   font-size: small;
 }
 .currentlyPlayingSong{
-  /* border:2px solid orange; */
-  /* width:10%; */
+
   height:30px;
   color:white;
 }
@@ -166,7 +229,6 @@ footer{
 .seek_Bar{
   width:100%;
   border:2px solid white;
-  /* margin-top:17px; */
   cursor: pointer;
 
 }
@@ -192,17 +254,69 @@ footer{
 
 .imgDiv{
   display: flex;
-  justify-content: center;
-  height:40vh;
+  justify-content:flex-start;
+  height:20vh;
 }
 .imgDiv img{
-  /* box-shadow: 0px -1px 198px 126px rgba(36,121,212,1); */
-  box-shadow: 0px -1px 198px 126px rgb(230, 146, 225);
+  border-radius: 4px;
+  box-shadow: 0px 10px 40px rgb(17, 16, 16);
 }
 
 p{
-  /* height:60px; */
   margin-top:3.5rem;
   text-align: center;
   font-size: 5rem;
+}
+.musicImages{
+ aspect-ratio: 1/1;
+ width:10rem;
+ height: 10rem;
+}
+#main_screen_player{
+  height:50px;
+  width:50px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:transparent;
+  background-color: rgb(19, 219, 45);
+  position: relative;
+  left:30px;
+  padding-left:4px;
+}
+.midScreen{
+  display: flex;
+  max-width:10rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#addToList{
+font-size: 2rem;
+position: relative;
+bottom:8px;
+color:white;
+}
+
+
+.music_Title_text{
+  height: 4rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-transform: capitalize;
+  text-decoration: ;
+  font-size: 0.9rem;
+  margin:1rem;
+  border-radius: 6px;
+
+}
+.music_Title_text > span{
+  color:green;
+}
+
+.music_Title_text:hover{
+  background:rgb(53, 52, 52);
+ 
 }
