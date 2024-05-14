@@ -61,7 +61,7 @@ audioObj.currentTime= (audioObj.duration*(e.offsetX/e.target.getBoundingClientRe
 
 document.addEventListener("click",(e)=>{
     if(e.target.parentElement.className=="musicContainersBox"){
-      window.location.assign("http://127.0.0.1:5500/template.html")
+      window.location.assign(`${window.location.href}/template.html`)
      localStorage.setItem("imgSrc",e.target.closest(".musicContainersBox").innerHTML)
      localStorage.setItem("imageMusicData",e.target.closest(".musicContainers").lastElementChild.innerHTML)
     }
